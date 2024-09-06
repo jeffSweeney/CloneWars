@@ -19,11 +19,11 @@ enum OperandType: Equatable, LabelProtocol {
         case .addition:
             "+"
         case .subtraction:
-            "-"
+            "–"
         case .multiply:
-            "x"
+            "×"
         case .divide:
-            "/"
+            "÷"
         }
     }
 }
