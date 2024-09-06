@@ -12,7 +12,7 @@ enum CalcNumericRange: Equatable, LabelProtocol {
     case three
     case four
     case five
-    case size
+    case six
     case seven
     case eight
     case nine
@@ -32,7 +32,7 @@ enum CalcNumericRange: Equatable, LabelProtocol {
             "4"
         case .five:
             "5"
-        case .size:
+        case .six:
             "6"
         case .seven:
             "7"
