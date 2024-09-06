@@ -26,34 +26,34 @@ struct CalculatorView: View {
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .resultProcessor(.ac)) })
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .resultProcessor(.plusMinus)) })
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .resultProcessor(.percentage)) })
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .operand(.divide)) })
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .operator(.divide)) })
                 }
                 
                 GridRow {
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .numeric(.seven)) })
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .numeric(.eight)) })
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .numeric(.nine)) })
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .operand(.multiply)) })
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .operator(.multiply)) })
                 }
                 
                 GridRow {
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .numeric(.four)) })
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .numeric(.five)) })
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .numeric(.six)) })
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .operand(.subtraction)) })
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .operator(.subtraction)) })
                 }
                 
                 GridRow {
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .numeric(.one)) })
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .numeric(.two)) })
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .numeric(.three)) })
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .operand(.addition)) })
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .operator(.addition)) })
                 }
                 
                 GridRow {
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .numeric(.zero)) }).gridCellColumns(2)
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .numeric(.dot)) })
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .operand(.equals)) })
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: { ButtonView(type: .operator(.equals)) })
                 }
             }
             .frame(maxWidth: .infinity)

@@ -1,11 +1,11 @@
 //
-//  OperandType.swift
+//  OperatorType.swift
 //  CalculatorClone
 //
 //  Created by Jeffrey Sweeney on 9/5/24.
 //
 
-enum OperandType: Equatable, LabelProtocol {
+enum OperatorType: Equatable, LabelProtocol {
     case equals
     case addition
     case subtraction

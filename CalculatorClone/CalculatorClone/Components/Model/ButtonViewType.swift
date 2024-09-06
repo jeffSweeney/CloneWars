@@ -9,15 +9,15 @@ import SwiftUI
 
 enum ButtonViewType: Equatable, LabelProtocol {
     case numeric(CalcNumericRange)
-    case operand(OperandType)
+    case `operator`(OperatorType)
     case resultProcessor(ProcessorType)
     
     var backgroundColor: Color {
         switch self {
         case .numeric:
             return .numeric
-        case .operand:
-            return .operand
+        case .operator:
+            return .operator
         case .resultProcessor:
             return .resultProcessor
         }
@@ -25,7 +25,7 @@ enum ButtonViewType: Equatable, LabelProtocol {
     
     var foregroundColor: Color {
         switch self {
-        case .numeric, .operand:
+        case .numeric, .operator:
             return .white
         case .resultProcessor:
             return .black
@@ -47,8 +47,8 @@ enum ButtonViewType: Equatable, LabelProtocol {
         switch self {
         case .numeric(let calcNumericRange):
             return calcNumericRange.label
-        case .operand(let operandType):
-            return operandType.label
+        case .operator(let operatorType):
+            return operatorType.label
         case .resultProcessor(let processorType):
             return processorType.label
         }
