@@ -14,11 +14,11 @@ struct CalculatorView: View {
     var body: some View {
         VStack(spacing: 12) {
             Text(result)
-                .font(.system(size: 60))
+                .font(.system(size: 65))
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .lineLimit(1)
-                .minimumScaleFactor(0.9)
+                .minimumScaleFactor(0.75)
                 .padding(.horizontal)
         
             Grid(horizontalSpacing: Global.gridSpacing, verticalSpacing: Global.gridSpacing) {
