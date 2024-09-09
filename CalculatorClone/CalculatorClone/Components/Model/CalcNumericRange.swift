@@ -18,7 +18,7 @@ enum CalcNumericRange: Equatable, LabelProtocol {
     case nine
     case dot
     
-    var label: String {
+    var stringValue: String {
         switch self {
         case .zero:
             "0"

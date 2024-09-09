@@ -11,7 +11,7 @@ enum ProcessorType: Equatable, LabelProtocol {
     case plusMinus
     case percentage
     
-    var label: String {
+    var stringValue: String {
         switch self {
         case .ac:
             "AC"

@@ -12,7 +12,7 @@ enum OperatorType: Equatable, LabelProtocol {
     case multiply
     case divide
     
-    var label: String {
+    var stringValue: String {
         switch self {
         case .equals:
             "="

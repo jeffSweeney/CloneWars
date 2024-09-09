@@ -43,14 +43,14 @@ enum ButtonViewType: Equatable, LabelProtocol {
             : Global.circleButtonDiameter
     }
     
-    var label: String {
+    var stringValue: String {
         switch self {
         case .numeric(let calcNumericRange):
-            return calcNumericRange.label
+            return calcNumericRange.stringValue
         case .operator(let operatorType):
-            return operatorType.label
+            return operatorType.stringValue
         case .resultProcessor(let processorType):
-            return processorType.label
+            return processorType.stringValue
         }
     }
 }

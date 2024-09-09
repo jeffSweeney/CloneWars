@@ -16,7 +16,7 @@ struct ButtonView: View {
                 .frame(width: type.width, height: type.height)
                 .foregroundStyle(type.backgroundColor)
             
-            Text(type.label)
+            Text(type.stringValue)
                 .foregroundStyle(type.foregroundColor)
                 .font(.largeTitle)
         }
