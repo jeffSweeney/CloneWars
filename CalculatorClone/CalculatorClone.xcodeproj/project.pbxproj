@@ -84,6 +84,18 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E0A14CF62C910FE90013E413 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E0D028062C8A90C00076C9AC /* ButtonLabelProtocol.swift */,
+				E0B7C52E2C8A4F5A00FBDB7A /* ButtonViewType.swift */,
+				E0D028082C8A90EB0076C9AC /* CalcNumericRange.swift */,
+				E0D0280A2C8A91220076C9AC /* OperatorType.swift */,
+				E0D0280C2C8A91570076C9AC /* ProcessorType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E0B7C5092C8A412200FBDB7A = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +122,7 @@
 				E0B7C5242C8A41A500FBDB7A /* Components */,
 				E044A70E2C8B8F0A0044A490 /* Constants */,
 				E0B7C5252C8A41AA00FBDB7A /* Core */,
+				E0A14CF62C910FE90013E413 /* Models */,
 				E0B7C51B2C8A412300FBDB7A /* Preview Content */,
 			);
 			path = CalculatorClone;
@@ -134,8 +147,7 @@
 		E0B7C5242C8A41A500FBDB7A /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E0B7C52B2C8A4E6A00FBDB7A /* Model */,
-				E0B7C52A2C8A4E5D00FBDB7A /* View */,
+				E0B7C5282C8A4C5200FBDB7A /* ButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -163,26 +175,6 @@
 				E0B7C5172C8A412200FBDB7A /* CalculatorView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E0B7C52A2C8A4E5D00FBDB7A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E0B7C5282C8A4C5200FBDB7A /* ButtonView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E0B7C52B2C8A4E6A00FBDB7A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E0B7C52E2C8A4F5A00FBDB7A /* ButtonViewType.swift */,
-				E0D028062C8A90C00076C9AC /* ButtonLabelProtocol.swift */,
-				E0D028082C8A90EB0076C9AC /* CalcNumericRange.swift */,
-				E0D0280A2C8A91220076C9AC /* OperatorType.swift */,
-				E0D0280C2C8A91570076C9AC /* ProcessorType.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E0ED26AA2C8CE96A004A8CB0 /* CalculatorCloneTests */ = {
