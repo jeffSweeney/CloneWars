@@ -38,7 +38,7 @@ struct ButtonView: View {
 
 // MARK: - Operator Button Previews
 #Preview("Division") {
-    ButtonView(type: .operator(.divide))
+    ButtonView(type: .operator(.division))
 }
 
 // MARK: - Result Processor Button Previews

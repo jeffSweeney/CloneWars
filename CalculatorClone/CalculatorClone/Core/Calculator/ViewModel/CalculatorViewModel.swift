@@ -8,8 +8,11 @@
 import Foundation
 
 final class CalculatorViewModel: ObservableObject {
-    @Published private (set) var displayedCurrentNumber = "0"
+    @Published private (set) var displayedCurrentNumber = "0" // TODO: This does not suffice. Values in the billions will set at 1 billion even.
     @Published private (set) var clearButton: ButtonViewType = .resultProcessor(.ac)
+    
+    private var priorNumber: Double = 0
+    private var currentOperator: OperatorType? = nil
     
     @MainActor
     func expandCurrentNumber(with button: CalcNumericRange) {
@@ -32,13 +35,48 @@ final class CalculatorViewModel: ObservableObject {
         }
         
         if displayedCurrentNumber == "0" { clearButton = .resultProcessor(.c) }
-        displayedCurrentNumber = newNumber.asCalculatorRendering() ?? displayedCurrentNumber
+        displayedCurrentNumber = newNumber.asCalculatorRendering ?? displayedCurrentNumber
     }
     
     @MainActor
     func clearCurrentInput() {
         displayedCurrentNumber = "0"
         clearButton = .resultProcessor(.ac)
+    }
+    
+    @MainActor
+    func setOperation(with newOperator: OperatorType) {
+        switch newOperator {
+        case .equals:
+            if let operatorToProcess = currentOperator {
+                let newCurrentNumber = operatorToProcess.processOperands(left: priorNumber,
+                                                                         right: displayedCurrentNumber.fromCalculatorRendering ?? 0)
+                displayedCurrentNumber = newCurrentNumber.asCalculatorRendering
+                priorNumber = 0
+                currentOperator = nil
+            }
+            
+        case .addition, .subtraction:
+            let newPriorNumber: Double
+            
+            if let operatorToProcess = currentOperator {
+                newPriorNumber = operatorToProcess.processOperands(left: priorNumber,
+                                                                   right: displayedCurrentNumber.fromCalculatorRendering ?? 0)
+            } else {
+                newPriorNumber = displayedCurrentNumber.fromCalculatorRendering ?? 0
+            }
+            
+            priorNumber = newPriorNumber
+            currentOperator = newOperator
+            displayedCurrentNumber = "0"
+            
+        case .multiplication:
+            break
+            
+        case .division:
+            break
+            
+        }
     }
 }
 
@@ -55,7 +93,7 @@ fileprivate extension String {
         return formatter
     }()
     
-    func asCalculatorRendering() -> String? {
+    var asCalculatorRendering: String? {
         // Split the string by the decimal point if there is one
         let components = self.split(separator: ".", maxSplits: 1, omittingEmptySubsequences: false)
         
@@ -72,25 +110,28 @@ fileprivate extension String {
         
         return nil
     }
+    
+    var fromCalculatorRendering: Double? {
+        return Double(self.replacingOccurrences(of: ",", with: ""))
+    }
 }
 
-// TODO: Implementation with an old approach. Keep for now in case it becomes necessary again.
-//fileprivate extension Double {
-//    private static let formatter: NumberFormatter = {
-//        let formatter = NumberFormatter()
-//        
-//        formatter.numberStyle = .decimal
-//        formatter.maximumFractionDigits = 9
-//        formatter.usesGroupingSeparator = true
-//        
-//        return formatter
-//    }()
-//    
-//    var asCalculatorRendering: String {
-//        guard abs(self) < 1e9 else { return String(format: "%.0e", self) }
-//        
-//        if let formattedNumber = Self.formatter.string(for: self) { return formattedNumber }
-//        
-//        return "Error" // Not sure how this is reached, but I'll keep it for debugging at the least.
-//    }
-//}
+fileprivate extension Double {
+    private static let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 9
+        formatter.usesGroupingSeparator = true
+        
+        return formatter
+    }()
+    
+    var asCalculatorRendering: String {
+        guard abs(self) < 1e9 else { return String(format: "%.0e", self) }
+        
+        if let formattedNumber = Self.formatter.string(for: self) { return formattedNumber }
+        
+        return "Error" // Not sure how this is reached, but I'll keep it for debugging at the least.
+    }
+}
