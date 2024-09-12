@@ -1,5 +1,5 @@
 //
-//  MDASScollViewModel.swift
+//  CalculatorViewModel.swift
 //  CalculatorClone
 //
 //  Created by Jeffrey Sweeney on 9/11/24.

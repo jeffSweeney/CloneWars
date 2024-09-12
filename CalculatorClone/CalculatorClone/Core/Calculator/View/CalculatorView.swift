@@ -12,7 +12,7 @@ struct CalculatorView: View {
     
     var body: some View {
         VStack(spacing: 12) {
-            Text(viewModel.displayedCurrentNumber)
+            Text(viewModel.currentNumberString)
                 .font(.system(size: 65))
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity, alignment: .trailing)
@@ -22,37 +22,37 @@ struct CalculatorView: View {
         
             Grid(horizontalSpacing: Global.gridSpacing, verticalSpacing: Global.gridSpacing) {
                 GridRow {
-                    Button(action: { viewModel.clearCurrentInput() }, label: { ButtonView(type: viewModel.clearButton) })
+                    Button(action: { viewModel.clearCurrentInput() }, label: { ButtonView(type: .resultProcessor(.ac)) })
                     Button(action: {}, label: { ButtonView(type: .resultProcessor(.plusMinus)) })
                     Button(action: {}, label: { ButtonView(type: .resultProcessor(.percentage)) })
-                    Button(action: {}, label: { ButtonView(type: .operator(.division)) })
+                    Button(action: { viewModel.setOperator(with: .division) }, label: { ButtonView(type: .operator(.division)) })
                 }
                 
                 GridRow {
                     Button(action: { viewModel.expandCurrentNumber(with: .seven) }, label: { ButtonView(type: .numeric(.seven)) })
                     Button(action: { viewModel.expandCurrentNumber(with: .eight) }, label: { ButtonView(type: .numeric(.eight)) })
                     Button(action: { viewModel.expandCurrentNumber(with: .nine) }, label: { ButtonView(type: .numeric(.nine)) })
-                    Button(action: {}, label: { ButtonView(type: .operator(.multiplication)) })
+                    Button(action: { viewModel.setOperator(with: .multiplication) }, label: { ButtonView(type: .operator(.multiplication)) })
                 }
                 
                 GridRow {
                     Button(action: { viewModel.expandCurrentNumber(with: .four) }, label: { ButtonView(type: .numeric(.four)) })
                     Button(action: { viewModel.expandCurrentNumber(with: .five) }, label: { ButtonView(type: .numeric(.five)) })
                     Button(action: { viewModel.expandCurrentNumber(with: .six) }, label: { ButtonView(type: .numeric(.six)) })
-                    Button(action: { viewModel.setOperation(with: .subtraction) }, label: { ButtonView(type: .operator(.subtraction)) })
+                    Button(action: { viewModel.setOperator(with: .subtraction) }, label: { ButtonView(type: .operator(.subtraction)) })
                 }
                 
                 GridRow {
                     Button(action: { viewModel.expandCurrentNumber(with: .one) }, label: { ButtonView(type: .numeric(.one)) })
                     Button(action: { viewModel.expandCurrentNumber(with: .two) }, label: { ButtonView(type: .numeric(.two)) })
                     Button(action: { viewModel.expandCurrentNumber(with: .three) }, label: { ButtonView(type: .numeric(.three)) })
-                    Button(action: { viewModel.setOperation(with: .addition) }, label: { ButtonView(type: .operator(.addition)) })
+                    Button(action: { viewModel.setOperator(with: .addition) }, label: { ButtonView(type: .operator(.addition)) })
                 }
                 
                 GridRow {
                     Button(action: { viewModel.expandCurrentNumber(with: .zero) }, label: { ButtonView(type: .numeric(.zero)) }).gridCellColumns(2)
                     Button(action: { viewModel.expandCurrentNumber(with: .dot) }, label: { ButtonView(type: .numeric(.dot)) })
-                    Button(action: { viewModel.setOperation(with: .equals) }, label: { ButtonView(type: .operator(.equals)) })
+                    Button(action: { viewModel.setOperator(with: .equals) }, label: { ButtonView(type: .operator(.equals)) })
                 }
             }
             .frame(maxWidth: .infinity)
