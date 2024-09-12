@@ -27,20 +27,27 @@ enum OperatorType: Equatable, LabelProtocol {
         }
     }
     
-    func processOperands(left: Double, right: Double) -> Double {
+    var asNSExpressionFormat: String {
         switch self {
         case .equals:
-            return 0 // TODO: Special Logic
+            "="
         case .addition:
-            return left + right
+            "+"
         case .subtraction:
-            return left - right
+            "-"
         case .multiplication:
-            return left * right
+            "*"
         case .division:
-            guard right != 0 else { return 0 } // TODO: Error handling
-            
-            return left / right
+            "/"
+        }
+    }
+    
+    func isGreaterOrEqual(to otherOperator: OperatorType) -> Bool {
+        switch self {
+        case .equals, .multiplication, .division:
+            return true
+        case .addition, .subtraction:
+            return otherOperator == .addition || otherOperator == .subtraction
         }
     }
 }

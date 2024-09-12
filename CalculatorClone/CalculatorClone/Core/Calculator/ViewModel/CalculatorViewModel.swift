@@ -1,22 +1,34 @@
 //
-//  CalculatorViewModel.swift
+//  MDASScollViewModel.swift
 //  CalculatorClone
 //
-//  Created by Jeffrey Sweeney on 9/6/24.
+//  Created by Jeffrey Sweeney on 9/11/24.
 //
 
 import Foundation
 
 final class CalculatorViewModel: ObservableObject {
-    @Published private (set) var displayedCurrentNumber = "0" // TODO: This does not suffice. Values in the billions will set at 1 billion even.
-    @Published private (set) var clearButton: ButtonViewType = .resultProcessor(.ac)
+    @Published var currentNumberString = "0"
     
-    private var priorNumber: Double = 0
-    private var currentOperator: OperatorType? = nil
+    private var overwriteCurrentNumber = true
+    private var currentScroll = ""
+    private var lastOperator: OperatorType? = nil
     
     @MainActor
     func expandCurrentNumber(with button: CalcNumericRange) {
-        var newNumber = displayedCurrentNumber.replacingOccurrences(of: ",", with: "") // strip the formatting for processing
+        guard !overwriteCurrentNumber else {
+            overwriteCurrentNumber = false
+            
+            if button == .dot {
+                currentNumberString = "0."
+            } else {
+                currentNumberString = button.stringValue
+            }
+            
+            return
+        }
+        
+        var newNumber = currentNumberString.replacingOccurrences(of: ",", with: "") // strip the formatting for processing
         let components = newNumber.split(separator: ".")
         let digitsToLeft = components[0].count
         let digitsToRight = components.count > 1 ? components[1].count : 0
@@ -27,56 +39,61 @@ final class CalculatorViewModel: ObservableObject {
         // Edge case: No multiple decimal input
         if button == .dot && (components.count > 1 || newNumber.last == ".") { return }
         
-        // Edge case: Default value is 0. If still 0, overwrite as long as first input wasn't a dot.
-        if displayedCurrentNumber == "0" && button != .dot {
-            newNumber = button.stringValue
-        } else {
-            newNumber += button.stringValue
+        newNumber += button.stringValue
+        currentNumberString = newNumber.asCalculatorRendering ?? currentNumberString
+    }
+    
+    @MainActor
+    func setOperator(with tappedOperator: OperatorType) {
+        guard let lastOperator else {
+            if tappedOperator != .equals {
+                overwriteCurrentNumber = true
+                currentScroll +=
+                    "\(currentNumberString.fromCalculatorRendering)\(tappedOperator.asNSExpressionFormat)"
+                lastOperator = tappedOperator
+            }
+            
+            return
         }
         
-        if displayedCurrentNumber == "0" { clearButton = .resultProcessor(.c) }
-        displayedCurrentNumber = newNumber.asCalculatorRendering ?? displayedCurrentNumber
+        // We have a lastOperator
+        switch tappedOperator {
+        case .equals, .addition, .subtraction:
+            reduceScroll(with: tappedOperator)
+        case .multiplication, .division:
+            if lastOperator.isGreaterOrEqual(to: tappedOperator) {
+                reduceScroll(with: tappedOperator)
+            } else {
+                overwriteCurrentNumber = true
+                currentScroll += "\(currentNumberString.fromCalculatorRendering)\(tappedOperator.asNSExpressionFormat)"
+                self.lastOperator = tappedOperator
+            }
+        }
+    }
+    
+    @MainActor
+    private func reduceScroll(with tappedOperator: OperatorType) {
+        currentScroll += "\(currentNumberString.fromCalculatorRendering)"
+        let reduction: Double = currentScroll.evaluateExpression() ?? 0 // TODO: Better error handling
+        currentNumberString = reduction.asCalculatorRendering
+        
+        if tappedOperator != .equals {
+            currentScroll = "\(currentNumberString.fromCalculatorRendering)\(tappedOperator.asNSExpressionFormat)"
+            lastOperator = tappedOperator
+            overwriteCurrentNumber = true
+        } else {
+            currentScroll = ""
+            lastOperator = nil
+            overwriteCurrentNumber = false
+        }
     }
     
     @MainActor
     func clearCurrentInput() {
-        displayedCurrentNumber = "0"
-        clearButton = .resultProcessor(.ac)
-    }
-    
-    @MainActor
-    func setOperation(with newOperator: OperatorType) {
-        switch newOperator {
-        case .equals:
-            if let operatorToProcess = currentOperator {
-                let newCurrentNumber = operatorToProcess.processOperands(left: priorNumber,
-                                                                         right: displayedCurrentNumber.fromCalculatorRendering ?? 0)
-                displayedCurrentNumber = newCurrentNumber.asCalculatorRendering
-                priorNumber = 0
-                currentOperator = nil
-            }
-            
-        case .addition, .subtraction:
-            let newPriorNumber: Double
-            
-            if let operatorToProcess = currentOperator {
-                newPriorNumber = operatorToProcess.processOperands(left: priorNumber,
-                                                                   right: displayedCurrentNumber.fromCalculatorRendering ?? 0)
-            } else {
-                newPriorNumber = displayedCurrentNumber.fromCalculatorRendering ?? 0
-            }
-            
-            priorNumber = newPriorNumber
-            currentOperator = newOperator
-            displayedCurrentNumber = "0"
-            
-        case .multiplication:
-            break
-            
-        case .division:
-            break
-            
-        }
+        currentNumberString = "0"
+        overwriteCurrentNumber = true
+        currentScroll = ""
+        lastOperator = nil
     }
 }
 
@@ -111,8 +128,13 @@ fileprivate extension String {
         return nil
     }
     
-    var fromCalculatorRendering: Double? {
-        return Double(self.replacingOccurrences(of: ",", with: ""))
+    var fromCalculatorRendering: Double {
+        return Double(self.replacingOccurrences(of: ",", with: "")) ?? 0
+    }
+    
+    func evaluateExpression() -> Double? {
+        let exp = NSExpression(format: self)
+        return exp.expressionValue(with: nil, context: nil) as? Double
     }
 }
 
