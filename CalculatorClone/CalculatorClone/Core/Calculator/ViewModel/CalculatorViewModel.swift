@@ -9,6 +9,7 @@ import Foundation
 
 final class CalculatorViewModel: ObservableObject {
     @Published var currentNumberString = "0"
+    @Published var clearProcessor: ProcessorType = .ac
     
     private var overwriteCurrentNumber = true
     private var currentScroll = ""
@@ -16,6 +17,8 @@ final class CalculatorViewModel: ObservableObject {
     
     @MainActor
     func expandCurrentNumber(with button: CalcNumericRange) {
+        if clearProcessor == .ac && button != .zero { clearProcessor = .c }
+        
         guard !overwriteCurrentNumber else {
             overwriteCurrentNumber = false
             
@@ -46,7 +49,10 @@ final class CalculatorViewModel: ObservableObject {
     @MainActor
     func processCurrentNumber(with processor: ProcessorType) {
         switch processor {
-        case .ac, .c: // TODO: Currently handled same way - Update
+        case .ac:
+            clearAll()
+            
+        case .c:
             clearCurrentInput()
             
         case .percentage:
@@ -105,11 +111,18 @@ final class CalculatorViewModel: ObservableObject {
     }
     
     @MainActor
-    func clearCurrentInput() {
+    func clearAll() {
         currentNumberString = "0"
         overwriteCurrentNumber = true
         currentScroll = ""
         lastOperator = nil
+    }
+    
+    @MainActor
+    func clearCurrentInput() {
+        currentNumberString = "0"
+        overwriteCurrentNumber = true
+        clearProcessor = .ac
     }
 }
 
