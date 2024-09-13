@@ -22,9 +22,9 @@ struct CalculatorView: View {
         
             Grid(horizontalSpacing: Global.gridSpacing, verticalSpacing: Global.gridSpacing) {
                 GridRow {
-                    Button(action: { viewModel.clearCurrentInput() }, label: { ButtonView(type: .resultProcessor(.ac)) })
-                    Button(action: {}, label: { ButtonView(type: .resultProcessor(.plusMinus)) })
-                    Button(action: {}, label: { ButtonView(type: .resultProcessor(.percentage)) })
+                    Button(action: { viewModel.processCurrentNumber(with: .ac) }, label: { ButtonView(type: .resultProcessor(.ac)) })
+                    Button(action: { viewModel.processCurrentNumber(with: .plusMinus) }, label: { ButtonView(type: .resultProcessor(.plusMinus)) })
+                    Button(action: { viewModel.processCurrentNumber(with: .percentage) }, label: { ButtonView(type: .resultProcessor(.percentage)) })
                     Button(action: { viewModel.setOperator(with: .division) }, label: { ButtonView(type: .operator(.division)) })
                 }
                 

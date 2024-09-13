@@ -44,6 +44,22 @@ final class CalculatorViewModel: ObservableObject {
     }
     
     @MainActor
+    func processCurrentNumber(with processor: ProcessorType) {
+        switch processor {
+        case .ac, .c: // TODO: Currently handled same way - Update
+            clearCurrentInput()
+            
+        case .percentage:
+            let currentResult = currentNumberString.fromCalculatorRendering
+            currentNumberString = (currentResult / 100).asCalculatorRendering
+            
+        case .plusMinus:
+            let currentResult = currentNumberString.fromCalculatorRendering
+            currentNumberString = (currentResult * -1).asCalculatorRendering
+        }
+    }
+    
+    @MainActor
     func setOperator(with tappedOperator: OperatorType) {
         guard let lastOperator else {
             if tappedOperator != .equals {
