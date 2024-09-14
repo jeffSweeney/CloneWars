@@ -21,7 +21,6 @@
 		E0D028092C8A90EB0076C9AC /* CalcNumericRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D028082C8A90EB0076C9AC /* CalcNumericRange.swift */; };
 		E0D0280B2C8A91220076C9AC /* OperatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0280A2C8A91220076C9AC /* OperatorType.swift */; };
 		E0D0280D2C8A91570076C9AC /* ProcessorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D0280C2C8A91570076C9AC /* ProcessorType.swift */; };
-		E0ED26B32C8CE9D6004A8CB0 /* CalculatorViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED26B22C8CE9D6004A8CB0 /* CalculatorViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +50,6 @@
 		E0D0280A2C8A91220076C9AC /* OperatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorType.swift; sourceTree = "<group>"; };
 		E0D0280C2C8A91570076C9AC /* ProcessorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessorType.swift; sourceTree = "<group>"; };
 		E0ED26A92C8CE96A004A8CB0 /* CalculatorCloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorCloneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0ED26B22C8CE9D6004A8CB0 /* CalculatorViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				E0B7C5142C8A412200FBDB7A /* CalculatorClone */,
-				E0ED26AA2C8CE96A004A8CB0 /* CalculatorCloneTests */,
 				E0B7C5132C8A412200FBDB7A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -189,14 +186,6 @@
 				E0B7C5172C8A412200FBDB7A /* CalculatorView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E0ED26AA2C8CE96A004A8CB0 /* CalculatorCloneTests */ = {
-			isa = PBXGroup;
-			children = (
-				E0ED26B22C8CE9D6004A8CB0 /* CalculatorViewModelTests.swift */,
-			);
-			path = CalculatorCloneTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,7 +307,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0ED26B32C8CE9D6004A8CB0 /* CalculatorViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
