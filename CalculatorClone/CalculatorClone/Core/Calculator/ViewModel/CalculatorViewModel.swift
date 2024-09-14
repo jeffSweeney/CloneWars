@@ -10,6 +10,7 @@ import Foundation
 final class CalculatorViewModel: ObservableObject {
     @Published var currentNumberString = "0"
     @Published var clearProcessor: ProcessorType = .ac
+    @Published var operatorInvertingColor: OperatorType? = nil
     
     private var overwriteCurrentNumber = true
     private var currentScroll = ""
@@ -17,6 +18,7 @@ final class CalculatorViewModel: ObservableObject {
     
     @MainActor
     func expandCurrentNumber(with button: CalcNumericRange) {
+        operatorInvertingColor = nil
         if clearProcessor == .ac && button != .zero { clearProcessor = .c }
         
         guard !overwriteCurrentNumber else {
@@ -67,6 +69,9 @@ final class CalculatorViewModel: ObservableObject {
     
     @MainActor
     func setOperator(with tappedOperator: OperatorType) {
+        // Indicates to the user what they're about to operate with
+        operatorInvertingColor = tappedOperator == .equals ? nil : tappedOperator
+        
         guard let lastOperator else {
             if tappedOperator != .equals {
                 overwriteCurrentNumber = true
@@ -82,6 +87,7 @@ final class CalculatorViewModel: ObservableObject {
         switch tappedOperator {
         case .equals, .addition, .subtraction:
             reduceScroll(with: tappedOperator)
+
         case .multiplication, .division:
             if lastOperator.isGreaterOrEqual(to: tappedOperator) {
                 reduceScroll(with: tappedOperator)
@@ -116,6 +122,7 @@ final class CalculatorViewModel: ObservableObject {
         overwriteCurrentNumber = true
         currentScroll = ""
         lastOperator = nil
+        operatorInvertingColor = nil
     }
     
     @MainActor

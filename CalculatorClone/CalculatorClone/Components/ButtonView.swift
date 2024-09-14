@@ -9,15 +9,29 @@ import SwiftUI
 
 struct ButtonView: View {
     let type: ButtonViewType
+    let invertColors: Bool
+    
+    init(type: ButtonViewType, invertColors: Bool = false) {
+        self.type = type
+        self.invertColors = invertColors
+    }
+    
+    var buttonColor: (background: Color, foreground: Color) {
+        guard !invertColors else {
+            return (background: type.foregroundColor, foreground: type.backgroundColor)
+        }
+       
+        return (background: type.backgroundColor, foreground: type.foregroundColor)
+    }
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: type.height/2)
                 .frame(width: type.width, height: type.height)
-                .foregroundStyle(type.backgroundColor)
+                .foregroundStyle(buttonColor.background)
             
             Text(type.stringValue)
-                .foregroundStyle(type.foregroundColor)
+                .foregroundStyle(buttonColor.foreground)
                 .font(.largeTitle)
         }
     }
@@ -39,6 +53,12 @@ struct ButtonView: View {
 // MARK: - Operator Button Previews
 #Preview("Division") {
     ButtonView(type: .operator(.division))
+}
+
+#Preview("Division-Inverted") {
+    ButtonView(type: .operator(.division), invertColors: true)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.black)
 }
 
 // MARK: - Result Processor Button Previews
