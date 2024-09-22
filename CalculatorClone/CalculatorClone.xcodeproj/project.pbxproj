@@ -11,6 +11,7 @@
 		E0A14CF82C926CCB0013E413 /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A14CF72C926CCB0013E413 /* CalculatorViewModel.swift */; };
 		E0A14CFB2C93CA5B0013E413 /* CalculatorClone+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A14CFA2C93CA5B0013E413 /* CalculatorClone+String.swift */; };
 		E0A14CFD2C93CA640013E413 /* CalculatorClone+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A14CFC2C93CA640013E413 /* CalculatorClone+Double.swift */; };
+		E0ADACFA2CA0A3B20058AD94 /* SweeneyCloneWarsIntro in Frameworks */ = {isa = PBXBuildFile; productRef = E0ADACF92CA0A3B20058AD94 /* SweeneyCloneWarsIntro */; };
 		E0B7C5162C8A412200FBDB7A /* CalculatorCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7C5152C8A412200FBDB7A /* CalculatorCloneApp.swift */; };
 		E0B7C5182C8A412200FBDB7A /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B7C5172C8A412200FBDB7A /* CalculatorView.swift */; };
 		E0B7C51A2C8A412300FBDB7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0B7C5192C8A412300FBDB7A /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0ADACFA2CA0A3B20058AD94 /* SweeneyCloneWarsIntro in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +206,9 @@
 			dependencies = (
 			);
 			name = CalculatorClone;
+			packageProductDependencies = (
+				E0ADACF92CA0A3B20058AD94 /* SweeneyCloneWarsIntro */,
+			);
 			productName = CalculatorClone;
 			productReference = E0B7C5122C8A412200FBDB7A /* CalculatorClone.app */;
 			productType = "com.apple.product-type.application";
@@ -254,6 +259,9 @@
 				Base,
 			);
 			mainGroup = E0B7C5092C8A412200FBDB7A;
+			packageReferences = (
+				E0ADACF82CA0A3B20058AD94 /* XCRemoteSwiftPackageReference "SweeneyCloneWarsIntro" */,
+			);
 			productRefGroup = E0B7C5132C8A412200FBDB7A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -565,6 +573,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E0ADACF82CA0A3B20058AD94 /* XCRemoteSwiftPackageReference "SweeneyCloneWarsIntro" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jeffSweeney/SweeneyCloneWarsIntro";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E0ADACF92CA0A3B20058AD94 /* SweeneyCloneWarsIntro */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0ADACF82CA0A3B20058AD94 /* XCRemoteSwiftPackageReference "SweeneyCloneWarsIntro" */;
+			productName = SweeneyCloneWarsIntro;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E0B7C50A2C8A412200FBDB7A /* Project object */;
 }

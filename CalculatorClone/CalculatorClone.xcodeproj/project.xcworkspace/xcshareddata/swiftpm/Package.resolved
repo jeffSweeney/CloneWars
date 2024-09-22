@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "sweeneyclonewarsintro",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeffSweeney/SweeneyCloneWarsIntro",
+      "state" : {
+        "branch" : "master",
+        "revision" : "d5bbec7b10beffcca4de45c8c0ccaf1c4e188f1c"
+      }
+    }
+  ],
+  "version" : 2
+}
