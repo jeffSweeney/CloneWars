@@ -11,6 +11,7 @@ struct ButtonView: View {
     let type: ButtonViewType
     let invertColors: Bool
     
+    /// TODO: Refactor default value `Global.circleButtonDiameter` once dynamic button sizing migration work is complete
     init(type: ButtonViewType, invertColors: Bool = false) {
         self.type = type
         self.invertColors = invertColors
