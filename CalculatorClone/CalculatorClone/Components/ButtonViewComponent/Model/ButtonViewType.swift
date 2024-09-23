@@ -32,17 +32,6 @@ enum ButtonViewType: Equatable, LabelProtocol {
         }
     }
     
-    var height: CGFloat {
-        // Consistently fixed for now
-        return Global.circleButtonDiameter
-    }
-    
-    var width: CGFloat {
-        return self == .numeric(.zero)
-            ? (Global.circleButtonDiameter * 2) + Global.gridSpacing
-            : Global.circleButtonDiameter
-    }
-    
     var stringValue: String {
         switch self {
         case .numeric(let calcNumericRange):

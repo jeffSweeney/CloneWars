@@ -8,31 +8,23 @@
 import SwiftUI
 
 struct ButtonView: View {
-    let type: ButtonViewType
-    let invertColors: Bool
+    @StateObject private var viewModel: ButtonViewModel
     
     /// TODO: Refactor default value `Global.circleButtonDiameter` once dynamic button sizing migration work is complete
-    init(type: ButtonViewType, invertColors: Bool = false) {
-        self.type = type
-        self.invertColors = invertColors
-    }
-    
-    var buttonColor: (background: Color, foreground: Color) {
-        guard !invertColors else {
-            return (background: type.foregroundColor, foreground: type.backgroundColor)
-        }
-       
-        return (background: type.backgroundColor, foreground: type.foregroundColor)
+    init(type: ButtonViewType, invertColors: Bool = false, allocatedWidth: CGFloat = Global.iPhone15ScreenWidth) {
+        self._viewModel = .init(wrappedValue: ButtonViewModel(type: type,
+                                                              invertColors: invertColors,
+                                                              allocatedScreenWidth: allocatedWidth))
     }
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: type.height/2)
-                .frame(width: type.width, height: type.height)
-                .foregroundStyle(buttonColor.background)
+            RoundedRectangle(cornerRadius: viewModel.buttonHeight/2)
+                .frame(width: viewModel.buttonWidth, height: viewModel.buttonHeight)
+                .foregroundStyle(viewModel.buttonBackgroundColor)
             
-            Text(type.stringValue)
-                .foregroundStyle(buttonColor.foreground)
+            Text(viewModel.buttonLabel)
+                .foregroundStyle(viewModel.buttonForegroundColor)
                 .font(.largeTitle)
         }
     }

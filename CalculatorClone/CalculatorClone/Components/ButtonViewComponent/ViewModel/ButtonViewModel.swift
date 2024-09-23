@@ -39,6 +39,9 @@ class ButtonViewModel: ObservableObject {
         
         return circleButtonDiameter
     }
+    
+    // MARK: - Text Properties
+    var buttonLabel: String { type.stringValue }
 }
 
 // MARK: - Static Construction Helper

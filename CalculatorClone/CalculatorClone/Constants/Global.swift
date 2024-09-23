@@ -8,6 +8,6 @@
 import Foundation
 
 struct Global {
-    static let circleButtonDiameter: CGFloat = 75
+    static let iPhone15ScreenWidth: CGFloat = 393 // TODO: Temporary
     static let gridSpacing: CGFloat = 18
 }
