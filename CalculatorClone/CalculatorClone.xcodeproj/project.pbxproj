@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E044A7102C8B8F390044A490 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = E044A70F2C8B8F390044A490 /* Global.swift */; };
+		E06615622CA2286B00E60BD7 /* ButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06615612CA2286B00E60BD7 /* ButtonViewModel.swift */; };
 		E0A14CF82C926CCB0013E413 /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A14CF72C926CCB0013E413 /* CalculatorViewModel.swift */; };
 		E0A14CFB2C93CA5B0013E413 /* CalculatorClone+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A14CFA2C93CA5B0013E413 /* CalculatorClone+String.swift */; };
 		E0A14CFD2C93CA640013E413 /* CalculatorClone+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A14CFC2C93CA640013E413 /* CalculatorClone+Double.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		E044A70F2C8B8F390044A490 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		E06615612CA2286B00E60BD7 /* ButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModel.swift; sourceTree = "<group>"; };
 		E0A14CF72C926CCB0013E413 /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 		E0A14CFA2C93CA5B0013E413 /* CalculatorClone+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorClone+String.swift"; sourceTree = "<group>"; };
 		E0A14CFC2C93CA640013E413 /* CalculatorClone+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalculatorClone+Double.swift"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		E066155E2CA227A800E60BD7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E06615612CA2286B00E60BD7 /* ButtonViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				E0B7C5292C8A4C5200FBDB7A /* ButtonView.swift in Sources */,
 				E0B7C5182C8A412200FBDB7A /* CalculatorView.swift in Sources */,
 				E0B7C52F2C8A4F5A00FBDB7A /* ButtonViewType.swift in Sources */,
+				E06615622CA2286B00E60BD7 /* ButtonViewModel.swift in Sources */,
 				E0A14CF82C926CCB0013E413 /* CalculatorViewModel.swift in Sources */,
 				E0A14CFD2C93CA640013E413 /* CalculatorClone+Double.swift in Sources */,
 				E0B7C5162C8A412200FBDB7A /* CalculatorCloneApp.swift in Sources */,
