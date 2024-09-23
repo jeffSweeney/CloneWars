@@ -110,6 +110,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E06615632CA228BA00E60BD7 /* ButtonViewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				E06615602CA227BA00E60BD7 /* Model */,
+				E066155F2CA227B500E60BD7 /* View */,
+				E066155E2CA227A800E60BD7 /* ViewModel */,
+			);
+			path = ButtonViewComponent;
+			sourceTree = "<group>";
+		};
 		E08609C42C8BC6E9008C90F7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,9 +187,7 @@
 		E0B7C5242C8A41A500FBDB7A /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E06615602CA227BA00E60BD7 /* Model */,
-				E066155F2CA227B500E60BD7 /* View */,
-				E066155E2CA227A800E60BD7 /* ViewModel */,
+				E06615632CA228BA00E60BD7 /* ButtonViewComponent */,
 			);
 			path = Components;
 			sourceTree = "<group>";
