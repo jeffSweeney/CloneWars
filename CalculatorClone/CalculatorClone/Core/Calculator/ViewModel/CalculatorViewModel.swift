@@ -11,6 +11,7 @@ final class CalculatorViewModel: ObservableObject {
     @Published var currentNumberString = "0"
     @Published var clearProcessor: ProcessorType = .ac
     @Published var operatorInvertingColor: OperatorType? = nil
+    @Published var screenWidth: CGFloat = Global.iPhone15ScreenWidth // Will be set on appear
     
     private var overwriteCurrentNumber = true
     private var currentScroll = ""
@@ -130,5 +131,10 @@ final class CalculatorViewModel: ObservableObject {
         currentNumberString = "0"
         overwriteCurrentNumber = true
         clearProcessor = .ac
+    }
+    
+    @MainActor
+    func updateScreenWidth(with size: CGFloat) {
+        screenWidth = size
     }
 }

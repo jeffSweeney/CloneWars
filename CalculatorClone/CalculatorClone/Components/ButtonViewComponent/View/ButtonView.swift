@@ -10,10 +10,10 @@ import SwiftUI
 struct ButtonView: View {
     @ObservedObject private var viewModel: ButtonViewModel
     
-    init(type: ButtonViewType, invertColors: Bool = false) {
+    init(type: ButtonViewType, invertColors: Bool = false, allocatedScreenWidth: CGFloat) {
         _viewModel = ObservedObject(wrappedValue: ButtonViewModel(type: type,
                                                                   invertColors: invertColors,
-                                                                  allocatedScreenWidth: Global.iPhone15ScreenWidth))
+                                                                  allocatedScreenWidth: allocatedScreenWidth))
     }
     
     var body: some View {
@@ -31,37 +31,37 @@ struct ButtonView: View {
 
 // MARK: - Numberic Button Previews
 #Preview("Nine") {
-    ButtonView(type: .numeric(.nine))
+    ButtonView(type: .numeric(.nine), allocatedScreenWidth: Global.iPhone15ScreenWidth)
 }
 
 #Preview("Dot") {
-    ButtonView(type: .numeric(.dot))
+    ButtonView(type: .numeric(.dot), allocatedScreenWidth: Global.iPhone15ScreenWidth)
 }
 
 #Preview("Zero") {
-    ButtonView(type: .numeric(.zero))
+    ButtonView(type: .numeric(.zero), allocatedScreenWidth: Global.iPhone15ScreenWidth)
 }
 
 // MARK: - Operator Button Previews
 #Preview("Division") {
-    ButtonView(type: .operator(.division))
+    ButtonView(type: .operator(.division), allocatedScreenWidth: Global.iPhone15ScreenWidth)
 }
 
 #Preview("Division-Inverted") {
-    ButtonView(type: .operator(.division), invertColors: true)
+    ButtonView(type: .operator(.division), invertColors: true, allocatedScreenWidth: Global.iPhone15ScreenWidth)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.black)
 }
 
 // MARK: - Result Processor Button Previews
 #Preview("PlusMinus") {
-    ButtonView(type: .resultProcessor(.plusMinus))
+    ButtonView(type: .resultProcessor(.plusMinus), allocatedScreenWidth: Global.iPhone15ScreenWidth)
 }
 
 #Preview("AC") {
-    ButtonView(type: .resultProcessor(.ac))
+    ButtonView(type: .resultProcessor(.ac), allocatedScreenWidth: Global.iPhone15ScreenWidth)
 }
 
 #Preview("C") {
-    ButtonView(type: .resultProcessor(.c))
+    ButtonView(type: .resultProcessor(.c), allocatedScreenWidth: Global.iPhone15ScreenWidth)
 }
