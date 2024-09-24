@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct ButtonView: View {
-    @StateObject private var viewModel: ButtonViewModel
+    @ObservedObject private var viewModel: ButtonViewModel
     
-    /// TODO: Refactor default value `Global.circleButtonDiameter` once dynamic button sizing migration work is complete
-    init(type: ButtonViewType, invertColors: Bool = false, allocatedWidth: CGFloat = Global.iPhone15ScreenWidth) {
-        self._viewModel = .init(wrappedValue: ButtonViewModel(type: type,
-                                                              invertColors: invertColors,
-                                                              allocatedScreenWidth: allocatedWidth))
+    init(type: ButtonViewType, invertColors: Bool = false) {
+        _viewModel = ObservedObject(wrappedValue: ButtonViewModel(type: type,
+                                                                  invertColors: invertColors,
+                                                                  allocatedScreenWidth: Global.iPhone15ScreenWidth))
     }
     
     var body: some View {
