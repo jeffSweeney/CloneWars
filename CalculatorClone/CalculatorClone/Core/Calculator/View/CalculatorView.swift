@@ -14,7 +14,7 @@ struct CalculatorView: View {
         GeometryReader { geo in
             VStack(spacing: 12) {
                 Text(viewModel.currentNumberString)
-                    .font(.system(size: 65))
+                    .font(.system(size: viewModel.resultFontSize))
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .lineLimit(1)

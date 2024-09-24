@@ -13,6 +13,8 @@ final class CalculatorViewModel: ObservableObject {
     @Published var operatorInvertingColor: OperatorType? = nil
     @Published var screenWidth: CGFloat = Global.iPhone15ScreenWidth // Will be set on appear
     
+    var resultFontSize: CGFloat { self.screenWidth * 0.18 }
+    
     private var overwriteCurrentNumber = true
     private var currentScroll = ""
     private var lastOperator: OperatorType? = nil
