@@ -8,15 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		E0AA077B2CB1805500524053 /* ContactsCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA077A2CB1805500524053 /* ContactsCloneApp.swift */; };
-		E0AA077D2CB1805500524053 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA077C2CB1805500524053 /* ContentView.swift */; };
+		E0AA077D2CB1805500524053 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA077C2CB1805500524053 /* RootView.swift */; };
 		E0AA077F2CB1805800524053 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0AA077E2CB1805800524053 /* Assets.xcassets */; };
 		E0AA07822CB1805800524053 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0AA07812CB1805800524053 /* Preview Assets.xcassets */; };
+		E0AA07922CB1858D00524053 /* SweeneyCloneWarsIntro in Frameworks */ = {isa = PBXBuildFile; productRef = E0AA07912CB1858D00524053 /* SweeneyCloneWarsIntro */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E0AA07772CB1805500524053 /* ContactsClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0AA077A2CB1805500524053 /* ContactsCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCloneApp.swift; sourceTree = "<group>"; };
-		E0AA077C2CB1805500524053 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E0AA077C2CB1805500524053 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		E0AA077E2CB1805800524053 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0AA07812CB1805800524053 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E0AA07882CB180A900524053 /* ContactsClone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ContactsClone.entitlements; sourceTree = "<group>"; };
@@ -27,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0AA07922CB1858D00524053 /* SweeneyCloneWarsIntro in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +114,7 @@
 		E0AA078F2CB1845100524053 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				E0AA077C2CB1805500524053 /* ContentView.swift */,
+				E0AA077C2CB1805500524053 /* RootView.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -133,6 +135,9 @@
 			dependencies = (
 			);
 			name = ContactsClone;
+			packageProductDependencies = (
+				E0AA07912CB1858D00524053 /* SweeneyCloneWarsIntro */,
+			);
 			productName = ContactsClone;
 			productReference = E0AA07772CB1805500524053 /* ContactsClone.app */;
 			productType = "com.apple.product-type.application";
@@ -161,6 +166,9 @@
 				Base,
 			);
 			mainGroup = E0AA076E2CB1805500524053;
+			packageReferences = (
+				E0AA07902CB1858D00524053 /* XCRemoteSwiftPackageReference "SweeneyCloneWarsIntro" */,
+			);
 			productRefGroup = E0AA07782CB1805500524053 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -187,7 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0AA077D2CB1805500524053 /* ContentView.swift in Sources */,
+				E0AA077D2CB1805500524053 /* RootView.swift in Sources */,
 				E0AA077B2CB1805500524053 /* ContactsCloneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E0AA07902CB1858D00524053 /* XCRemoteSwiftPackageReference "SweeneyCloneWarsIntro" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jeffSweeney/SweeneyCloneWarsIntro";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E0AA07912CB1858D00524053 /* SweeneyCloneWarsIntro */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0AA07902CB1858D00524053 /* XCRemoteSwiftPackageReference "SweeneyCloneWarsIntro" */;
+			productName = SweeneyCloneWarsIntro;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E0AA076F2CB1805500524053 /* Project object */;
 }
