@@ -53,10 +53,13 @@
 			isa = PBXGroup;
 			children = (
 				E0AA07882CB180A900524053 /* ContactsClone.entitlements */,
-				E0AA077A2CB1805500524053 /* ContactsCloneApp.swift */,
-				E0AA077C2CB1805500524053 /* ContentView.swift */,
 				E0AA077E2CB1805800524053 /* Assets.xcassets */,
+				E0AA07892CB183CE00524053 /* App */,
+				E0AA078B2CB1840B00524053 /* Core */,
+				E0AA078C2CB1841200524053 /* Extensions */,
+				E0AA078D2CB1841600524053 /* Models */,
 				E0AA07802CB1805800524053 /* Preview Content */,
+				E0AA078E2CB1842100524053 /* Services */,
 			);
 			path = ContactsClone;
 			sourceTree = "<group>";
@@ -67,6 +70,51 @@
 				E0AA07812CB1805800524053 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E0AA07892CB183CE00524053 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E0AA077A2CB1805500524053 /* ContactsCloneApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E0AA078B2CB1840B00524053 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E0AA078F2CB1845100524053 /* Root */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E0AA078C2CB1841200524053 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E0AA078D2CB1841600524053 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E0AA078E2CB1842100524053 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E0AA078F2CB1845100524053 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E0AA077C2CB1805500524053 /* ContentView.swift */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
