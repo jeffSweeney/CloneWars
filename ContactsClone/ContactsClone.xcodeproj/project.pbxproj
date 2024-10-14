@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E003AF442CBD6060002747D8 /* ContactCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003AF432CBD6060002747D8 /* ContactCardView.swift */; };
+		E003AF462CBDABE8002747D8 /* ContactsClone+LinearGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003AF452CBDABE8002747D8 /* ContactsClone+LinearGradient.swift */; };
+		E003AF492CBDACAB002747D8 /* ContactAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003AF482CBDACAB002747D8 /* ContactAction.swift */; };
+		E003AF4C2CBDB97C002747D8 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003AF4B2CBDB97C002747D8 /* ActionButtonView.swift */; };
 		E0AA077B2CB1805500524053 /* ContactsCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA077A2CB1805500524053 /* ContactsCloneApp.swift */; };
 		E0AA077D2CB1805500524053 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AA077C2CB1805500524053 /* RootView.swift */; };
 		E0AA077F2CB1805800524053 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0AA077E2CB1805800524053 /* Assets.xcassets */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E003AF432CBD6060002747D8 /* ContactCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCardView.swift; sourceTree = "<group>"; };
+		E003AF452CBDABE8002747D8 /* ContactsClone+LinearGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactsClone+LinearGradient.swift"; sourceTree = "<group>"; };
+		E003AF482CBDACAB002747D8 /* ContactAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAction.swift; sourceTree = "<group>"; };
+		E003AF4B2CBDB97C002747D8 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
 		E0AA07772CB1805500524053 /* ContactsClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0AA077A2CB1805500524053 /* ContactsCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCloneApp.swift; sourceTree = "<group>"; };
 		E0AA077C2CB1805500524053 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -35,6 +43,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E003AF3F2CBD5FEB002747D8 /* ContactCard */ = {
+			isa = PBXGroup;
+			children = (
+				E003AF472CBDAC33002747D8 /* Model */,
+				E003AF402CBD5FFE002747D8 /* View */,
+			);
+			path = ContactCard;
+			sourceTree = "<group>";
+		};
+		E003AF402CBD5FFE002747D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E003AF4A2CBDB969002747D8 /* Components */,
+				E003AF432CBD6060002747D8 /* ContactCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E003AF472CBDAC33002747D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E003AF482CBDACAB002747D8 /* ContactAction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E003AF4A2CBDB969002747D8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E003AF4B2CBDB97C002747D8 /* ActionButtonView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		E0AA076E2CB1805500524053 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +127,7 @@
 		E0AA078B2CB1840B00524053 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E003AF3F2CBD5FEB002747D8 /* ContactCard */,
 				E0AA078F2CB1845100524053 /* Root */,
 			);
 			path = Core;
@@ -93,6 +136,7 @@
 		E0AA078C2CB1841200524053 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E003AF452CBDABE8002747D8 /* ContactsClone+LinearGradient.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -195,6 +239,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E003AF4C2CBDB97C002747D8 /* ActionButtonView.swift in Sources */,
+				E003AF492CBDACAB002747D8 /* ContactAction.swift in Sources */,
+				E003AF442CBD6060002747D8 /* ContactCardView.swift in Sources */,
+				E003AF462CBDABE8002747D8 /* ContactsClone+LinearGradient.swift in Sources */,
 				E0AA077D2CB1805500524053 /* RootView.swift in Sources */,
 				E0AA077B2CB1805500524053 /* ContactsCloneApp.swift in Sources */,
 			);
