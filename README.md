@@ -13,8 +13,8 @@ Built for iOS 18+, EntertainMe leverages this core tech stack:
 
 ### App Intro
 
-<img src="Media/Intro.gif" alt="Intro Scene" width="300">
+<img src="CalculatorClone/CalculatorClone/Media/Intro.gif" alt="Intro Scene" width="300">
 
 ### App Demo
 
-<img src="Media/TODO.giff" alt="App Demo" width="300">
+<img src="CalculatorClone/CalculatorClone/Media/TODO.giff" alt="App Demo" width="300">
