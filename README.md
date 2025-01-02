@@ -1,2 +1,20 @@
 # CloneWars
-This repo consists of iOS clone apps I have written in SwiftUI. This work is 100% my own creation, adopting the design of existing apps.
+
+Clone of the iPhone iOS 17 Calculator app, with my [CloneWarsIntro package](https://github.com/jeffSweeney/SweeneyCloneWarsIntro) injected in.
+
+## Tech Stack
+
+Built for iOS 18+, EntertainMe leverages this core tech stack:
+- Swift & SwiftUI
+- MVVM Architecture
+- SPM
+
+## Recordings
+
+### App Intro
+
+<img src="Media/Intro.gif" alt="Intro Scene" width="300">
+
+### App Demo
+
+<img src="Media/TODO.giff" alt="App Demo" width="300">
