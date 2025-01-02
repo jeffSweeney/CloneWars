@@ -157,12 +157,13 @@
 		E0B7C5142C8A412200FBDB7A /* CalculatorClone */ = {
 			isa = PBXGroup;
 			children = (
-				E0B7C5192C8A412300FBDB7A /* Assets.xcassets */,
 				E0B7C5232C8A419B00FBDB7A /* App */,
+				E0B7C5192C8A412300FBDB7A /* Assets.xcassets */,
 				E0B7C5242C8A41A500FBDB7A /* Components */,
 				E044A70E2C8B8F0A0044A490 /* Constants */,
 				E0B7C5252C8A41AA00FBDB7A /* Core */,
 				E0A14CF92C93CA310013E413 /* Extensions */,
+				E0F3EFF62D270AF10018323E /* Media */,
 				E0B7C51B2C8A412300FBDB7A /* Preview Content */,
 			);
 			path = CalculatorClone;
@@ -215,6 +216,13 @@
 				E0B7C5172C8A412200FBDB7A /* CalculatorView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E0F3EFF62D270AF10018323E /* Media */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
